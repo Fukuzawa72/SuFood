@@ -26,9 +26,12 @@ namespace SuFood.Controllers
                 ProductName = p.ProductName,
                 Price = p.Price,
                 Category = p.Category
-            });
-
-             
+            });             
+        }
+        [HttpGet]
+        public async Task<IEnumerable<VmRetailList>> GetCategories()
+        {
+            return _context.Products.Select(p => new VmRetailList { Category = p.Category, });
         }
     }
 }

@@ -10459,23 +10459,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\chong\\.nuget\\packages\\": {},
+    "C:\\Users\\user\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\chong\\OneDrive\\桌面\\SuFood專案MVC\\SuFood\\SuFood.csproj",
+      "projectUniqueName": "D:\\Users\\user\\Desktop\\專題正式區\\SuFood專案MVC\\SuFood\\SuFood.csproj",
       "projectName": "SuFood",
-      "projectPath": "C:\\Users\\chong\\OneDrive\\桌面\\SuFood專案MVC\\SuFood\\SuFood.csproj",
-      "packagesPath": "C:\\Users\\chong\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\chong\\OneDrive\\桌面\\SuFood專案MVC\\SuFood\\obj\\",
+      "projectPath": "D:\\Users\\user\\Desktop\\專題正式區\\SuFood專案MVC\\SuFood\\SuFood.csproj",
+      "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
+      "outputPath": "D:\\Users\\user\\Desktop\\專題正式區\\SuFood專案MVC\\SuFood\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\chong\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -10548,7 +10548,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.103\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.201\\RuntimeIdentifierGraph.json"
       }
     }
   }

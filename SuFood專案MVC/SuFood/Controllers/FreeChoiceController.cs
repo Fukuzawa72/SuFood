@@ -20,6 +20,7 @@ namespace SuFood.Controllers
         }
         public IActionResult FreeChoice()
         {
+
             return View();
         }
 

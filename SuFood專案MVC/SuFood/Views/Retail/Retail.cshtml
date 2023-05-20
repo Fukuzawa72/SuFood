@@ -1,0 +1,136 @@
+﻿<main id="main">
+    <section id="hero" class="hero d-flex align-items-center section-bg" >
+        <!-- End #main -->
+        <!-- 零售起點 -->
+        <div class="modal fade"
+             id="templatemo_search"
+             tabindex="-1"
+             role="dialog"
+             aria-labelledby="exampleModalLabel"
+             aria-hidden="true">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="w-100 pt-1 mb-5 text-right">
+                    <button type="button"
+                            class="btn-close"
+                            data-bs-dismiss="modal"
+                            aria-label="Close"></button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Start Content -->
+        <div class="container py-5">
+            <div class="row">
+                <!-- 左邊分類列表開始 -->
+                <div class="col-lg-2">
+                    <ul class="list-unstyled templatemo-accordion py-4">
+                        <li class="pb-3">
+                            <a class="collapsed d-flex justify-content-between text-decoration-none display-6 fw-bold p-0"
+                               href="#">
+                                <b>產品類別</b>
+                                <i class="fas fa-chevron-circle-down mt-1"></i>
+                            </a>
+                            <ul class="collapse show list-unstyled pl-3" v-for="c in Category">
+                                <li>
+                                    <a class="text-decoration-none display-6" href="#">{{c.Category}}</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                    </ul>
+                </div>
+                <!-- 左邊分類列表開始結束 -->
+                <!-- v-for=" p in product " -->
+                <!-- 測試 -->
+                <div class="col-lg">
+                    <div class="row">
+                        <div class="col-md-4" v-for="p in product">
+                            <div class="card mb-4 product-wap rounded-0">
+                                <!-- 按鈕起點 -->
+                                <div class="card rounded-0">
+                                    <img class="card-img rounded-0 img-fluid card-img-custom"
+                                         src="https://picsum.photos/id/1020/600/400"
+                                         alt="bear" />
+
+                                    <div class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
+                                        <ul class="list-unstyled">
+                                            <li>
+                                                <a class="btn btn-danger text-white"
+                                                   href="#"
+                                                   @@click.prevent="addToChart(p)">
+                                                    <i class="far fa-heart"></i>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="btn btn-danger text-white mt-2" href="#">
+                                                    <i class="far fa-eye"></i>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="btn btn-danger text-white mt-2" href="#">
+                                                    <i class="fas fa-cart-plus"></i>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <!-- 按鈕終點 -->
+                                <div class="card-body">
+                                    <a href="shop-single.html"
+                                       class="h2 text-decoration-none fw-bold">{{p.name}}</a>
+                                    <ul class="w-100 list-unstyled d-flex justify-content-between mb-0">
+                                        <li class="pt-2">
+                                            <span class="product-color-dot color-dot-red float-left rounded-circle ml-1"></span>
+                                            <span class="product-color-dot color-dot-blue float-left rounded-circle ml-1"></span>
+                                            <span class="product-color-dot color-dot-black float-left rounded-circle ml-1"></span>
+                                            <span class="product-color-dot color-dot-light float-left rounded-circle ml-1"></span>
+                                            <span class="product-color-dot color-dot-green float-left rounded-circle ml-1"></span>
+                                        </li>
+                                    </ul>
+                                    <ul class="list-unstyled d-flex justify-content-center mb-1">
+                                        <li>
+                                            <i class="text-warning fa fa-star"></i>
+                                            <i class="text-warning fa fa-star"></i>
+                                            <i class="text-warning fa fa-star"></i>
+                                            <i class="text-muted fa fa-star"></i>
+                                            <i class="text-muted fa fa-star"></i>
+                                        </li>
+                                    </ul>
+                                    <p class="text-center mb-0">{{ p.unitPrice }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 零售終點 -->
+    </section>
+</main>
+
+   
+
+@section Scripts{
+    <script src="~/axios/axios.min.js"></script>
+    <script>
+        var product = new Vue({
+            el: "#main",
+            data: {
+                product: [
+                    { id: "1", name: "我是一頭熊", unitPrice: "200", quantity: "1", stars: "3.5", picture: "./assets/img/about.jpg" },
+                    { id: "2", name: "我是一頭熊2", unitPrice: "300", quantity: "1", stars: "3.5", picture: "./assets/img/about.jpg", },
+                    { id: "3", name: "我是一頭熊3", unitPrice: "400", quantity: "1", stars: "3.5", picture: "./assets/img/about.jpg", },
+                ],
+                Category: [
+                    { Category: "水果" },
+                    { Category: "蔬菜" }
+                ]
+            },
+            methods: {
+                addToChart(p) {
+                    console.log(p);
+                },
+            },
+        });
+    </script>
+} 

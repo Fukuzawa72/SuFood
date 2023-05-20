@@ -56,7 +56,7 @@
                     <ul>
                         @*Controller的連結*@
                         <li><a asp-area="BackStage" asp-controller="BackHome" asp-action="Index">後台(測試用)</a></li>
-                        <li><a asp-area="" asp-controller="#" asp-action="#">零售</a></li>
+                        <li><a asp-area="" asp-controller="Retail" asp-action="Retail">零售</a></li>
                         <li><a asp-area="" asp-controller="FreeChoice" asp-action="FreeChoice">自由選</a></li>
                         <li><a asp-area="" asp-controller="#" asp-action="#">幫你選</a></li>
 
@@ -88,7 +88,7 @@
                                       <a href="#"><span>登出</span> </a> -->
                         </div>
                     </div>
-                    @*壞掉的購物*@
+                    <!---購物車起點 ---!>
                     <div class="cartsBox iconBox"
                          data-bs-toggle="offcanvas"
                          data-bs-target="#offcanvasWithBothOptions"
@@ -175,6 +175,7 @@
 
         </div>
     </header><!-- End Header -->
+                    <!---購物車終點 ---!>
     <main role="main" class="pb-3">
         @RenderBody()
     </main>

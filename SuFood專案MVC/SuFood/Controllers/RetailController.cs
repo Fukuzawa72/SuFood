@@ -25,7 +25,8 @@ namespace SuFood.Controllers
                 ProductId = p.ProductId,
                 ProductName = p.ProductName,
                 Price = p.Price,
-                Category = p.Category
+                Category = p.Category,
+                Img = p.Img 
             });             
         }
         [HttpGet]

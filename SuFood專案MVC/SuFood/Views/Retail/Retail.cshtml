@@ -1,5 +1,5 @@
 ﻿<main id="main">
-    <section id="hero" class="hero d-flex align-items-center section-bg" >
+    <section id="hero" class="hero d-flex align-items-center section-bg">
         <!-- End #main -->
         <!-- 零售起點 -->
         <div class="modal fade"
@@ -25,12 +25,11 @@
                 <div class="col-lg-2">
                     <ul class="list-unstyled templatemo-accordion py-4">
                         <li class="pb-3">
-                            <a class="collapsed d-flex justify-content-between text-decoration-none display-6 fw-bold p-0"
-                               href="#">
+                            <p class="collapsed d-flex justify-content-between text-decoration-none display-6 fw-bold p-0">
                                 <b>產品類別</b>
                                 <i class="fas fa-chevron-circle-down mt-1"></i>
-                            </a>
-                            <ul class="collapse show list-unstyled pl-3" v-for="c in Category">
+                            </p>
+                            <ul class="collapse show list-unstyled pl-3" v-for="c in Categories">
                                 <li>
                                     <a class="text-decoration-none display-6" href="#">{{c}}</a>
                                 </li>
@@ -49,8 +48,8 @@
                                 <!-- 按鈕起點 -->
                                 <div class="card rounded-0">
                                     <img class="card-img rounded-0 img-fluid card-img-custom"
-                                         src="https://picsum.photos/id/1020/600/400"
-                                         alt="bear" />
+                                         :src="'data:image/png;base64,'+p.img"
+                                         alt="零售商品圖片" />
 
                                     <div class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
                                         <ul class="list-unstyled">
@@ -77,7 +76,7 @@
                                 <!-- 按鈕終點 -->
                                 <div class="card-body">
                                     <a href="shop-single.html"
-                                       class="h2 text-decoration-none fw-bold">{{p.ProductName}}</a>
+                                       class="h2 text-decoration-none fw-bold">{{p.productName}}</a>
                                     <ul class="w-100 list-unstyled d-flex justify-content-between mb-0">
                                         <li class="pt-2">
                                             <span class="product-color-dot color-dot-red float-left rounded-circle ml-1"></span>
@@ -87,17 +86,8 @@
                                             <span class="product-color-dot color-dot-green float-left rounded-circle ml-1"></span>
                                         </li>
                                     </ul>
-                                    <ul class="list-unstyled d-flex justify-content-center mb-1">
-                                        <li>
-                                            <i class="text-warning fa fa-star"></i>
-                                            <i class="text-warning fa fa-star"></i>
-                                            <i class="text-warning fa fa-star"></i>
-                                            <i class="text-muted fa fa-star"></i>
-                                            <i class="text-muted fa fa-star"></i>
-                                            <p></p>
-                                        </li>
-                                    </ul>
-                                    <p class="text-center mb-0">{{ p.Price }}</p>
+                                    
+                                    <p class="text-center mb-0">{{ p.price }}</p>
                                 </div>
                             </div>
                         </div>
@@ -109,7 +99,7 @@
     </section>
 </main>
 
-   
+
 
 @section Scripts{
     <script src="~/axios/axios.min.js"></script>
@@ -121,24 +111,31 @@
                 product: [],
                 Category: []
             },
-            mounted() {
-                this.GetProductList();
-            },
             methods: {
                 GetProductList() {
-                    axios.get("/Retail/GetRetail").then(response => {
+                    axios.get("/Retail/GetRetial").then(response => {
                         this.product = response.data;
                     }).catch(error => {
-                        console.error("抓不到產品清單");
+                        console.log("抓不到產品清單");
                     });
 
                     axios.get("/Retail/GetCategories").then(response => {
                         this.Category = response.data;
                     }).catch(error => {
-                        console.error("類別抓不到");
+                        console.log("類別抓不到");
                     });
                 }
             },
+            computed: {
+                Categories() {
+                    return this.Category.map(p => p.category).filter(function (element, index, arr) {
+                        return arr.indexOf(element) == index;
+                    })
+                },
+
+            },
+            mounted() {
+                this.GetProductList();
             },
         });
     </script>

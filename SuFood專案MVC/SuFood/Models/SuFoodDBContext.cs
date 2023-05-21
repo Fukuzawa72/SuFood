@@ -18,10 +18,73 @@ namespace SuFood.Models
         {
         }
 
+        public virtual DbSet<Account> Account { get; set; }
         public virtual DbSet<Products> Products { get; set; }
+        public virtual DbSet<ShoppingCart> ShoppingCart { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Account>(entity =>
+            {
+                entity.HasIndex(e => e.Phone, "UQ_Phone")
+                    .IsUnique();
+
+                entity.Property(e => e.AccountId).HasColumnName("Account_Id");
+
+                entity.Property(e => e.Account1)
+                    .IsRequired()
+                    .HasMaxLength(50)
+                    .HasColumnName("Account");
+
+                entity.Property(e => e.AccountStatus)
+                    .HasMaxLength(2)
+                    .HasColumnName("Account_status");
+
+                entity.Property(e => e.BirthDate).HasColumnType("date");
+
+                entity.Property(e => e.CreateDatetime)
+                    .HasColumnType("datetime")
+                    .HasColumnName("Create_Datetime");
+
+                entity.Property(e => e.DefaultCreditCardHolder)
+                    .HasMaxLength(10)
+                    .HasColumnName("Default_CreditCard_Holder");
+
+                entity.Property(e => e.DefaultCreditCardNumber)
+                    .HasMaxLength(10)
+                    .HasColumnName("Default_CreditCard_Number");
+
+                entity.Property(e => e.DefaultShipAddress)
+                    .HasMaxLength(50)
+                    .HasColumnName("Default_ShipAddress");
+
+                entity.Property(e => e.FirstName)
+                    .IsRequired()
+                    .HasMaxLength(15)
+                    .HasColumnName("First_Name");
+
+                entity.Property(e => e.Gender).HasMaxLength(2);
+
+                entity.Property(e => e.IsSupervisor).HasColumnName("isSupervisor");
+
+                entity.Property(e => e.LastName)
+                    .IsRequired()
+                    .HasMaxLength(15)
+                    .HasColumnName("Last_Name");
+
+                entity.Property(e => e.LasttImeLogin)
+                    .IsRequired()
+                    .IsRowVersion()
+                    .IsConcurrencyToken()
+                    .HasColumnName("LasttIme_Login");
+
+                entity.Property(e => e.Password)
+                    .IsRequired()
+                    .HasMaxLength(30);
+
+                entity.Property(e => e.Phone).HasMaxLength(10);
+            });
+
             modelBuilder.Entity<Products>(entity =>
             {
                 entity.HasKey(e => e.ProductId);
@@ -46,6 +109,33 @@ namespace SuFood.Models
                     .IsRequired()
                     .HasMaxLength(10)
                     .HasColumnName("Stock_Unit");
+            });
+
+            modelBuilder.Entity<ShoppingCart>(entity =>
+            {
+                entity.HasKey(e => e.CartId);
+
+                entity.ToTable("Shopping_Cart");
+
+                entity.Property(e => e.CartId).HasColumnName("Cart_Id");
+
+                entity.Property(e => e.AccountId).HasColumnName("Account_Id");
+
+                entity.Property(e => e.CartQuantity).HasColumnName("Cart_Quantity");
+
+                entity.Property(e => e.ProductId).HasColumnName("Product_Id");
+
+                entity.HasOne(d => d.Account)
+                    .WithMany(p => p.ShoppingCart)
+                    .HasForeignKey(d => d.AccountId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_Account_TO_Shopping_Cart");
+
+                entity.HasOne(d => d.Product)
+                    .WithMany(p => p.ShoppingCart)
+                    .HasForeignKey(d => d.ProductId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_Products_TO_Shopping_Cart");
             });
 
             OnModelCreatingPartial(modelBuilder);

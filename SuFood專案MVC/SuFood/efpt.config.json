@@ -15,7 +15,15 @@
    "SelectedToBeGenerated": 0,
    "Tables": [
       {
+         "Name": "[dbo].[Account]",
+         "ObjectType": 0
+      },
+      {
          "Name": "[dbo].[Products]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Shopping_Cart]",
          "ObjectType": 0
       }
    ],

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "j7h+sMNC942K5I32qOx7Lh9SmBEBRpj0VKvCeoQnFTeQJZEbID/TsS0barcKXr6EeqFM/API7yrb7deEK24uCQ==",
+  "dgSpecHash": "E8Rxl8SJTtGnqBSue5zoSsmBXpEyv5iRVAGEHFyao6tSNDxmqq5nmUh2y3PMX+pRkFNraxGcbT6pDvkgI0wQmw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\chong\\OneDrive\\桌面\\SuFood專案MVC\\SuFood\\SuFood.csproj",
+  "projectFilePath": "C:\\Users\\chong\\OneDrive\\桌面\\SuFood專題\\SuFood專案MVC\\SuFood\\SuFood.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\chong\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\chong\\.nuget\\packages\\messagepack\\2.1.152\\messagepack.2.1.152.nupkg.sha512",

@@ -111,7 +111,14 @@ namespace SuFood.Areas.BackStage.Controllers
                     }
 
                     _context.Update(products);
-                    await _context.SaveChangesAsync();
+                    try
+                    {
+                        await _context.SaveChangesAsync();
+                    }
+                    catch(Exception)
+                    {
+                        return "修改失敗";
+                    }
                 }
                 catch (DbUpdateConcurrencyException)
                 {

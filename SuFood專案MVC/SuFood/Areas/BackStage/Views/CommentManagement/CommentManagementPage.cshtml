@@ -1,0 +1,121 @@
+﻿@section Styles{
+	<link href="~/css/model.css" rel="stylesheet" />
+	<link href="~/css/freechoicemanagement.css" rel="stylesheet" />
+}
+
+<div class="Recent-order col-10 col-sm-12 col-md-10 col-xl-10" id="app">
+	<div>
+		<!-- head -->
+		<div class="ordersreview">
+			<h4>評論管理</h4>
+		</div>
+		<!-- 1.搜尋框，下拉選單-->
+		<div class="wrap">
+			<div class="searchBar">
+				@*想用V-model連結*@
+				<input class="search-bar form-control" type="search" name="search" id="search" placeholder="輸入查詢" v-model="" v-on:keyup.enter="">
+				@*<button class="search-btn" type="button"><i class='bx bx-search-alt-2'></i></button>*@
+			</div>
+		</div>
+	</div>
+
+
+
+	<!-- body-->
+	<div>
+		<table class="table table-striped table-hover">
+			<thead>
+				<tr class="table tr" v-for="item ">
+					<th scope="col">評論ID</th>
+					<th scope="col">星數</th>
+					<th scope="col">評論</th>
+					<th scope="col">訂單編號</th>
+					<th scope="col">編輯</th>
+					<th scope="col">刪除</th>
+				</tr>
+			</thead>
+			<tbody>
+				<!--評論資料 -->
+				<tr>
+					<th class="tbale th" scope="row">1</th>
+					<td>5</td>
+					<td>價格實惠，又能吃到不錯的異國零食</td>
+					<td>1000008686</td>
+					<td>
+						<button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#deleteModal" @@click="deleteConfirm()">修改</button>
+					</td>
+					<td>
+						<button class="btn btn-warning">刪除</button>
+					</td>
+				</tr>
+				<tr>
+					<th class="tbale th" scope="row">2</th>
+					<td>4</td>
+					<td>訂閱制有幾樣我不喜歡，但總體來說還行</td>
+					<td>1000015454</td>
+					<td>
+						<button class="btn btn-primary">編輯</button>
+					</td>
+					<td>
+						<button class="btn btn-warning">刪除</button>
+					</td>
+				</tr>
+				<tr>
+					<th class="tbale th" scope="row">3</th>
+					<td>2</td>
+					<td>蔬食超難吃的</td>
+					<td>1000114514</td>
+					<td>
+						<button class="btn btn-primary">編輯</button>
+					</td>
+					<td>
+						<button class="btn btn-warning">刪除</button>
+					</td>
+				</tr>
+				<tr>
+					<th class="tbale th" scope="row">4</th>
+					<td>5</td>
+					<td>剛好有我想吃的零食直接手刀下單!</td>
+					<td>1000026803</td>
+					<td>
+						<button class="btn btn-primary">編輯</button>
+					</td>
+					<td>
+						<button class="btn btn-warning">刪除</button>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+
+	@*<不一定會使用>*@
+
+	<!-- 3.分頁 -->
+	<div class="paging">
+		<nav aria-label="Page navigation example">
+			<ul class="pagination">
+				<li class="page-item">
+					<a class="page-link" href="#" aria-label="Previous">
+						<span aria-hidden="true">&laquo;</span>
+					</a>
+				</li>
+				<li class="page-item"><a class="page-link" href="#">1</a></li>
+				<li class="page-item"><a class="page-link" href="#">2</a></li>
+				<li class="page-item"><a class="page-link" href="#">3</a></li>
+				<li class="page-item">
+					<a class="page-link" href="#" aria-label="Next">
+						<span aria-hidden="true">&raquo;</span>
+					</a>
+				</li>
+			</ul>
+		</nav>
+	</div>
+
+</div>
+
+
+@section Scripts{
+	<script src="~/js/vue.js"></script>
+
+}

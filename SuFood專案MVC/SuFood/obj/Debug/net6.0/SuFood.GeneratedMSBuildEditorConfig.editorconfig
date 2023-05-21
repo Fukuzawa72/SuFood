@@ -16,12 +16,20 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\Tibame_T14\Documents\SuFood\SuFood專案MVC\SuFood
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/Users/Tibame_T14/Documents/SuFood/SuFood專案MVC/SuFood/Areas/BackStage/Views/BackHome/CommentManagement.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQmFja1N0YWdlXFZpZXdzXEJhY2tIb21lXENvbW1lbnRNYW5hZ2VtZW50LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Tibame_T14/Documents/SuFood/SuFood專案MVC/SuFood/Areas/BackStage/Views/BackHome/FreeChoiceProduct.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQmFja1N0YWdlXFZpZXdzXEJhY2tIb21lXEZyZWVDaG9pY2VQcm9kdWN0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Tibame_T14/Documents/SuFood/SuFood專案MVC/SuFood/Areas/BackStage/Views/BackHome/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQmFja1N0YWdlXFZpZXdzXEJhY2tIb21lXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Tibame_T14/Documents/SuFood/SuFood專案MVC/SuFood/Areas/BackStage/Views/CommentManagement/CommentManagementPage.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQmFja1N0YWdlXFZpZXdzXENvbW1lbnRNYW5hZ2VtZW50XENvbW1lbnRNYW5hZ2VtZW50UGFnZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Tibame_T14/Documents/SuFood/SuFood專案MVC/SuFood/Areas/BackStage/_ViewImports.cshtml]

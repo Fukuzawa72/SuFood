@@ -1,6 +1,28 @@
-﻿<main id="main">
+﻿<style>
+    .container py-5 {
+        position: absolute;
+    }
+
+    .form-inline.my-2.my-lg-0 {
+        position: relative;
+        bottom: 45px;
+        width: 300px;
+    }
+
+    .form-control {
+        border-radius: 5%;
+    }
+
+    /*.btn-secondary {
+                padding: 0.375rem 0.75rem;
+                font-size: 0.9rem;
+        }*/
+</style>
+
+<main id="main">
     <section id="hero" class="hero d-flex align-items-center section-bg">
-        <!-- End #main -->
+
+
         <!-- 零售起點 -->
         <div class="modal fade"
              id="templatemo_search"
@@ -20,18 +42,26 @@
 
         <!-- Start Content -->
         <div class="container py-5">
+            <form class="form-inline my-2 my-lg-0" role="search" method="get" action="/Search/SearchList" target="_blank">
+                <div class="input-group">
+                    <input type="text" class="form-control" name="keyword" placeholder="想查什麼商品呢？">
+                    <span class="input-group-btn">
+                        <button type="submit" class="btn btn-secondary fw-bold"><b>搜尋</b></button>
+                    </span>
+                </div>
+            </form>
             <div class="row">
                 <!-- 左邊分類列表開始 -->
                 <div class="col-lg-2">
                     <ul class="list-unstyled templatemo-accordion py-4">
                         <li class="pb-3">
-                            <p class="collapsed d-flex justify-content-between text-decoration-none display-6 fw-bold p-0">
-                                <b>產品類別</b>
-                                <i class="fas fa-chevron-circle-down mt-1"></i>
+                            <p class="collapsed d-flex justify-content-between text-decoration-none display-6 fw-bold fw-bolder p-0">
+                                <a class="text-decoration-none fw-bold" href="#" @@click="GetProductList()"><b>所有商品</b></a>
                             </p>
-                            <ul class="collapse show list-unstyled pl-3" v-for="c in Categories">
+                            <ul class="collapse show list-unstyled pl-3" v-for="c in category">
                                 <li>
-                                    <a class="text-decoration-none display-6" href="#">{{c}}</a>
+                                    <a class="text-decoration-none fw-bold" href="#" @@click="showCategoryProducts(c.category)">{{c.category}} ({{c.countCategory}})</a>
+
                                 </li>
                             </ul>
                         </li>
@@ -86,7 +116,7 @@
                                             <span class="product-color-dot color-dot-green float-left rounded-circle ml-1"></span>
                                         </li>
                                     </ul>
-                                    
+
                                     <p class="text-center mb-0">{{ p.price }}</p>
                                 </div>
                             </div>
@@ -109,7 +139,7 @@
             el: "#main",
             data: {
                 product: [],
-                Category: []
+                category: []
             },
             methods: {
                 GetProductList() {
@@ -120,20 +150,22 @@
                     });
 
                     axios.get("/Retail/GetCategories").then(response => {
-                        this.Category = response.data;
+                        this.category = response.data;
                     }).catch(error => {
                         console.log("類別抓不到");
                     });
-                }
-            },
-            computed: {
-                Categories() {
-                    return this.Category.map(p => p.category).filter(function (element, index, arr) {
-                        return arr.indexOf(element) == index;
-                    })
                 },
-
+                showCategoryProducts(category) {
+                    axios.get("/Retail/SortProducts?category=" + category)
+                        .then(response => {
+                            this.product = response.data;
+                        })
+                        .catch(error => {
+                            console.log("無法依分類顯示產品");
+                        });
+                },
             },
+
             mounted() {
                 this.GetProductList();
             },

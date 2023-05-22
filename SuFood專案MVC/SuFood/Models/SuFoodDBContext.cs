@@ -7,50 +7,80 @@ using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace SuFood.Models
 {
-    public partial class SuFoodDBContext : DbContext
-    {
-        public SuFoodDBContext()
-        {
-        }
+	public partial class SuFoodDBContext : DbContext
+	{
+		public SuFoodDBContext()
+		{
+		}
 
-        public SuFoodDBContext(DbContextOptions<SuFoodDBContext> options)
-            : base(options)
-        {
-        }
+		public SuFoodDBContext(DbContextOptions<SuFoodDBContext> options)
+			: base(options)
+		{
+		}
 
-        public virtual DbSet<Products> Products { get; set; }
+		public virtual DbSet<Coupon> Coupon { get; set; }
+		public virtual DbSet<Products> Products { get; set; }
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            modelBuilder.Entity<Products>(entity =>
-            {
-                entity.HasKey(e => e.ProductId);
+		protected override void OnModelCreating(ModelBuilder modelBuilder)
+		{
+			modelBuilder.Entity<Coupon>(entity =>
+			{
+				entity.Property(e => e.CouponId).HasColumnName("Coupon_Id");
 
-                entity.Property(e => e.ProductId).HasColumnName("Product_Id");
+				entity.Property(e => e.CouponDescription)
+					.IsRequired()
+					.HasMaxLength(50)
+					.HasColumnName("Coupon_Description");
 
-                entity.Property(e => e.Category).HasMaxLength(50);
+				entity.Property(e => e.CouponEndDate)
+					.HasColumnType("date")
+					.HasColumnName("Coupon_EndDate");
 
-                entity.Property(e => e.ProductDescription)
-                    .IsRequired()
-                    .HasMaxLength(50)
-                    .HasColumnName("Product_Description");
+				entity.Property(e => e.CouponMinusCost)
+					.HasColumnType("decimal(5, 0)")
+					.HasColumnName("Coupon_MinusCost");
 
-                entity.Property(e => e.ProductName)
-                    .IsRequired()
-                    .HasMaxLength(50)
-                    .HasColumnName("Product_Name");
+				entity.Property(e => e.CouponName)
+					.IsRequired()
+					.HasMaxLength(50)
+					.HasColumnName("Coupon_Name");
 
-                entity.Property(e => e.StockQuantity).HasColumnName("Stock_Quantity");
+				entity.Property(e => e.CouponStartDate)
+					.HasColumnType("date")
+					.HasColumnName("Coupon_StartDate");
 
-                entity.Property(e => e.StockUnit)
-                    .IsRequired()
-                    .HasMaxLength(10)
-                    .HasColumnName("Stock_Unit");
-            });
+				entity.Property(e => e.MinimumPurchasingAmount).HasColumnName("Minimum_PurchasingAmount");
+			});
 
-            OnModelCreatingPartial(modelBuilder);
-        }
+			modelBuilder.Entity<Products>(entity =>
+			{
+				entity.HasKey(e => e.ProductId);
 
-        partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
-    }
+				entity.Property(e => e.ProductId).HasColumnName("Product_Id");
+
+				entity.Property(e => e.Category).HasMaxLength(50);
+
+				entity.Property(e => e.ProductDescription)
+					.IsRequired()
+					.HasMaxLength(50)
+					.HasColumnName("Product_Description");
+
+				entity.Property(e => e.ProductName)
+					.IsRequired()
+					.HasMaxLength(50)
+					.HasColumnName("Product_Name");
+
+				entity.Property(e => e.StockQuantity).HasColumnName("Stock_Quantity");
+
+				entity.Property(e => e.StockUnit)
+					.IsRequired()
+					.HasMaxLength(10)
+					.HasColumnName("Stock_Unit");
+			});
+
+			OnModelCreatingPartial(modelBuilder);
+		}
+
+		partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
+	}
 }

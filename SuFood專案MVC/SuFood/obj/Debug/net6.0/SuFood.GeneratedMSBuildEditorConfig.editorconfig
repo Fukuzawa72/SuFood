@@ -9,73 +9,77 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = SuFood
 build_property.RootNamespace = SuFood
-build_property.ProjectDir = C:\Users\chong\OneDrive\桌面\SuFood專案MVC\SuFood\
+build_property.ProjectDir = D:\WorkSpace\專題\SuFood\SuFood專案MVC\SuFood\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\chong\OneDrive\桌面\SuFood專案MVC\SuFood
+build_property.MSBuildProjectDirectory = D:\WorkSpace\專題\SuFood\SuFood專案MVC\SuFood
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/chong/OneDrive/桌面/SuFood專案MVC/SuFood/Areas/BackStage/Views/BackHome/FreeChoiceProduct.cshtml]
+[D:/WorkSpace/專題/SuFood/SuFood專案MVC/SuFood/Areas/BackStage/Views/BackHome/Coupon.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQmFja1N0YWdlXFZpZXdzXEJhY2tIb21lXENvdXBvbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WorkSpace/專題/SuFood/SuFood專案MVC/SuFood/Areas/BackStage/Views/BackHome/FreeChoiceProduct.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQmFja1N0YWdlXFZpZXdzXEJhY2tIb21lXEZyZWVDaG9pY2VQcm9kdWN0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/chong/OneDrive/桌面/SuFood專案MVC/SuFood/Areas/BackStage/Views/BackHome/Index.cshtml]
+[D:/WorkSpace/專題/SuFood/SuFood專案MVC/SuFood/Areas/BackStage/Views/BackHome/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQmFja1N0YWdlXFZpZXdzXEJhY2tIb21lXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/chong/OneDrive/桌面/SuFood專案MVC/SuFood/Areas/BackStage/_ViewImports.cshtml]
+[D:/WorkSpace/專題/SuFood/SuFood專案MVC/SuFood/Areas/BackStage/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQmFja1N0YWdlXF9WaWV3SW1wb3J0cy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/chong/OneDrive/桌面/SuFood專案MVC/SuFood/Areas/BackStage/_ViewStart.cshtml]
+[D:/WorkSpace/專題/SuFood/SuFood專案MVC/SuFood/Areas/BackStage/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQmFja1N0YWdlXF9WaWV3U3RhcnQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/chong/OneDrive/桌面/SuFood專案MVC/SuFood/Areas/Identity/Pages/_ViewStart.cshtml]
+[D:/WorkSpace/專題/SuFood/SuFood專案MVC/SuFood/Areas/Identity/Pages/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/chong/OneDrive/桌面/SuFood專案MVC/SuFood/Views/FreeChoice/FreeChoice.cshtml]
+[D:/WorkSpace/專題/SuFood/SuFood專案MVC/SuFood/Views/FreeChoice/FreeChoice.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRnJlZUNob2ljZVxGcmVlQ2hvaWNlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/chong/OneDrive/桌面/SuFood專案MVC/SuFood/Views/Home/Index.cshtml]
+[D:/WorkSpace/專題/SuFood/SuFood專案MVC/SuFood/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/chong/OneDrive/桌面/SuFood專案MVC/SuFood/Views/Home/Privacy.cshtml]
+[D:/WorkSpace/專題/SuFood/SuFood專案MVC/SuFood/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/chong/OneDrive/桌面/SuFood專案MVC/SuFood/Views/Members/PersonalInfo.cshtml]
+[D:/WorkSpace/專題/SuFood/SuFood專案MVC/SuFood/Views/Members/PersonalInfo.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVtYmVyc1xQZXJzb25hbEluZm8uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/chong/OneDrive/桌面/SuFood專案MVC/SuFood/Views/Members/_SidebarPartial.cshtml]
+[D:/WorkSpace/專題/SuFood/SuFood專案MVC/SuFood/Views/Members/_SidebarPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVtYmVyc1xfU2lkZWJhclBhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/chong/OneDrive/桌面/SuFood專案MVC/SuFood/Views/Shared/_LoginPartial.cshtml]
+[D:/WorkSpace/專題/SuFood/SuFood專案MVC/SuFood/Views/Shared/_LoginPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Mb2dpblBhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/chong/OneDrive/桌面/SuFood專案MVC/SuFood/Views/Shared/_ValidationScriptsPartial.cshtml]
+[D:/WorkSpace/專題/SuFood/SuFood專案MVC/SuFood/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/chong/OneDrive/桌面/SuFood專案MVC/SuFood/Views/_ViewImports.cshtml]
+[D:/WorkSpace/專題/SuFood/SuFood專案MVC/SuFood/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/chong/OneDrive/桌面/SuFood專案MVC/SuFood/Views/_ViewStart.cshtml]
+[D:/WorkSpace/專題/SuFood/SuFood專案MVC/SuFood/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/chong/OneDrive/桌面/SuFood專案MVC/SuFood/Areas/BackStage/Views/Shared/_LayoutBackStage.cshtml]
+[D:/WorkSpace/專題/SuFood/SuFood專案MVC/SuFood/Areas/BackStage/Views/Shared/_LayoutBackStage.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQmFja1N0YWdlXFZpZXdzXFNoYXJlZFxfTGF5b3V0QmFja1N0YWdlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = b-8y8xhm7z3q
 
-[C:/Users/chong/OneDrive/桌面/SuFood專案MVC/SuFood/Views/Shared/_Layout.cshtml]
+[D:/WorkSpace/專題/SuFood/SuFood專案MVC/SuFood/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-ocbifc41x8

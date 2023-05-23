@@ -18,10 +18,34 @@ namespace SuFood.Models
         {
         }
 
+        public virtual DbSet<FreeChoicePlans> FreeChoicePlans { get; set; }
         public virtual DbSet<Products> Products { get; set; }
+        public virtual DbSet<ProductsOfPlans> ProductsOfPlans { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<FreeChoicePlans>(entity =>
+            {
+                entity.HasKey(e => e.PlanId)
+                    .HasName("PK__FreeChoi__755C22B73A4C2535");
+
+                entity.Property(e => e.PlanCanChoiceCount).HasColumnName("Plan_CanChoiceCount");
+
+                entity.Property(e => e.PlanDescription)
+                    .HasMaxLength(50)
+                    .HasColumnName("Plan_Description");
+
+                entity.Property(e => e.PlanName)
+                    .HasMaxLength(50)
+                    .HasColumnName("Plan_Name");
+
+                entity.Property(e => e.PlanPrice).HasColumnName("Plan_Price");
+
+                entity.Property(e => e.PlanStatus).HasColumnName("Plan_Status");
+
+                entity.Property(e => e.PlanTotalCount).HasColumnName("Plan_TotalCount");
+            });
+
             modelBuilder.Entity<Products>(entity =>
             {
                 entity.HasKey(e => e.ProductId);
@@ -46,6 +70,25 @@ namespace SuFood.Models
                     .IsRequired()
                     .HasMaxLength(10)
                     .HasColumnName("Stock_Unit");
+            });
+
+            modelBuilder.Entity<ProductsOfPlans>(entity =>
+            {
+                entity.HasKey(e => new { e.PlanId, e.ProductId });
+
+                entity.Property(e => e.ProductId).HasColumnName("Product_Id");
+
+                entity.HasOne(d => d.Plan)
+                    .WithMany(p => p.ProductsOfPlans)
+                    .HasForeignKey(d => d.PlanId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_ProductsOfPlans_FreeChoicePlans");
+
+                entity.HasOne(d => d.Product)
+                    .WithMany(p => p.ProductsOfPlans)
+                    .HasForeignKey(d => d.ProductId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_ProductsOfPlans_Products");
             });
 
             OnModelCreatingPartial(modelBuilder);

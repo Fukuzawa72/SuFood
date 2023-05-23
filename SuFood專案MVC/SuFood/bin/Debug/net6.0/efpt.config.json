@@ -15,7 +15,15 @@
    "SelectedToBeGenerated": 0,
    "Tables": [
       {
+         "Name": "[dbo].[FreeChoicePlans]",
+         "ObjectType": 0
+      },
+      {
          "Name": "[dbo].[Products]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ProductsOfPlans]",
          "ObjectType": 0
       }
    ],

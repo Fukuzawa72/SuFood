@@ -202,7 +202,7 @@
 
                 //取得方案
                 GetPlans(){
-                    axios.get("/FreeChoice/GetPlansAndProducts").then(response => {                        
+                    axios.get("/BackStage/FreeChoicePlansManagement/GetPlansAndProducts").then(response => {                        
                         response.data.forEach(response => {
                             console.log(response)
                             this.plans.push(response.plans)
@@ -212,7 +212,7 @@
                 //取得方案內的產品
                 GetProducts(planId){
                     let _this = this;
-                    axios.get("/FreeChoice/GetPlansAndProducts").then(response => {                        
+                    axios.get("/BackStage//FreeChoicePlansManagement/GetPlansAndProducts").then(response => {
                         response.data.forEach(response => {
                             if(response.plans.planId == planId){
                                 _this.products = response.products

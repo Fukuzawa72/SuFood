@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "bp5buFhsMbmnJDZEiyFJfY50ornFX29y1hHa6g3kzik=",
+  "Hash": "48uCtswsorx4iC0sAywe4u5JJbNTQA8DpDwHMPuRuq8=",
   "Source": "SuFood",
   "BasePath": "_content/SuFood",
   "Mode": "Default",
@@ -1309,6 +1309,23 @@
       "OriginalItemSpec": "wwwroot\\css\\freeChoiceManagement.css"
     },
     {
+      "Identity": "C:\\Users\\chong\\OneDrive\\桌面\\SuFood專題\\SuFood專案MVC\\SuFood\\wwwroot\\css\\freeChoicePlansManagement.css",
+      "SourceId": "SuFood",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\chong\\OneDrive\\桌面\\SuFood專題\\SuFood專案MVC\\SuFood\\wwwroot\\",
+      "BasePath": "_content/SuFood",
+      "RelativePath": "css/freeChoicePlansManagement.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\freeChoicePlansManagement.css"
+    },
+    {
       "Identity": "C:\\Users\\chong\\OneDrive\\桌面\\SuFood專題\\SuFood專案MVC\\SuFood\\wwwroot\\css\\homePageMain.css",
       "SourceId": "SuFood",
       "SourceType": "Discovered",
@@ -2072,6 +2089,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\freeChoiceManagement.js"
+    },
+    {
+      "Identity": "C:\\Users\\chong\\OneDrive\\桌面\\SuFood專題\\SuFood專案MVC\\SuFood\\wwwroot\\js\\freeChoicePlansManagement.js",
+      "SourceId": "SuFood",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\chong\\OneDrive\\桌面\\SuFood專題\\SuFood專案MVC\\SuFood\\wwwroot\\",
+      "BasePath": "_content/SuFood",
+      "RelativePath": "js/freeChoicePlansManagement.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\freeChoicePlansManagement.js"
     },
     {
       "Identity": "C:\\Users\\chong\\OneDrive\\桌面\\SuFood專題\\SuFood專案MVC\\SuFood\\wwwroot\\js\\main.js",

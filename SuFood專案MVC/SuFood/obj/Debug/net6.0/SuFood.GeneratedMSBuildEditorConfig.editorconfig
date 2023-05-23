@@ -16,6 +16,10 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\chong\OneDrive\桌面\SuFood專題\SuFood專案MVC\SuFood
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/Users/chong/OneDrive/桌面/SuFood專題/SuFood專案MVC/SuFood/Areas/BackStage/Views/BackHome/FreeChoicePlans.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQmFja1N0YWdlXFZpZXdzXEJhY2tIb21lXEZyZWVDaG9pY2VQbGFucy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/chong/OneDrive/桌面/SuFood專題/SuFood專案MVC/SuFood/Areas/BackStage/Views/BackHome/FreeChoiceProduct.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQmFja1N0YWdlXFZpZXdzXEJhY2tIb21lXEZyZWVDaG9pY2VQcm9kdWN0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 

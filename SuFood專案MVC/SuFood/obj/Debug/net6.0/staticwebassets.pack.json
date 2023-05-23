@@ -69,6 +69,10 @@
       "PackagePath": "staticwebassets\\css\\freeChoiceManagement.css"
     },
     {
+      "Id": "C:\\Users\\chong\\OneDrive\\桌面\\SuFood專題\\SuFood專案MVC\\SuFood\\wwwroot\\css\\freeChoicePlansManagement.css",
+      "PackagePath": "staticwebassets\\css\\freeChoicePlansManagement.css"
+    },
+    {
       "Id": "C:\\Users\\chong\\OneDrive\\桌面\\SuFood專題\\SuFood專案MVC\\SuFood\\wwwroot\\css\\homePageMain.css",
       "PackagePath": "staticwebassets\\css\\homePageMain.css"
     },
@@ -243,6 +247,10 @@
     {
       "Id": "C:\\Users\\chong\\OneDrive\\桌面\\SuFood專題\\SuFood專案MVC\\SuFood\\wwwroot\\js\\freeChoiceManagement.js",
       "PackagePath": "staticwebassets\\js\\freeChoiceManagement.js"
+    },
+    {
+      "Id": "C:\\Users\\chong\\OneDrive\\桌面\\SuFood專題\\SuFood專案MVC\\SuFood\\wwwroot\\js\\freeChoicePlansManagement.js",
+      "PackagePath": "staticwebassets\\js\\freeChoicePlansManagement.js"
     },
     {
       "Id": "C:\\Users\\chong\\OneDrive\\桌面\\SuFood專題\\SuFood專案MVC\\SuFood\\wwwroot\\js\\main.js",

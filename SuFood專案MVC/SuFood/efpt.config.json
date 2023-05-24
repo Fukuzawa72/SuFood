@@ -15,7 +15,23 @@
    "SelectedToBeGenerated": 0,
    "Tables": [
       {
+         "Name": "[dbo].[Account]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Announcement]",
+         "ObjectType": 0
+      },
+      {
          "Name": "[dbo].[Products]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Shopping_method]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Subscribe_List]",
          "ObjectType": 0
       }
    ],

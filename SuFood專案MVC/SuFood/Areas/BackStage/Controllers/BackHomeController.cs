@@ -27,6 +27,11 @@ namespace SuFood.Areas.BackStage.Controllers
         {
             return View();
         }
+        //公告管理頁面
+        public IActionResult Adm_Announcements()
+        {
+            return View();
+        }
 
         // <示範> 生成自己功能頁面的Controller統一放在這裡。 例如: 優惠券管理頁面如下
         //public IActionResult Coupoun()

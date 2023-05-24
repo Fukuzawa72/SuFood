@@ -21,6 +21,11 @@ namespace SuFood.Controllers
             return View();
         }
 
+        public IActionResult HelpChoice()
+        {
+            return View();
+        }
+
         public IActionResult Index()
         {
             return View();

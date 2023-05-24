@@ -18,10 +18,111 @@ namespace SuFood.Models
         {
         }
 
+        public virtual DbSet<Account> Account { get; set; }
+        public virtual DbSet<Announcement> Announcement { get; set; }
         public virtual DbSet<Products> Products { get; set; }
+        public virtual DbSet<ShoppingMethod> ShoppingMethod { get; set; }
+        public virtual DbSet<SubscribeList> SubscribeList { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Account>(entity =>
+            {
+                entity.HasIndex(e => e.Phone, "UQ_Phone")
+                    .IsUnique();
+
+                entity.Property(e => e.AccountId).HasColumnName("Account_Id");
+
+                entity.Property(e => e.Account1)
+                    .IsRequired()
+                    .HasMaxLength(50)
+                    .HasColumnName("Account");
+
+                entity.Property(e => e.AccountStatus)
+                    .HasMaxLength(2)
+                    .HasColumnName("Account_status");
+
+                entity.Property(e => e.BirthDate).HasColumnType("date");
+
+                entity.Property(e => e.CreateDatetime)
+                    .HasColumnType("datetime")
+                    .HasColumnName("Create_Datetime");
+
+                entity.Property(e => e.DefaultCreditCardHolder)
+                    .HasMaxLength(10)
+                    .HasColumnName("Default_CreditCard_Holder");
+
+                entity.Property(e => e.DefaultCreditCardNumber)
+                    .HasMaxLength(10)
+                    .HasColumnName("Default_CreditCard_Number");
+
+                entity.Property(e => e.DefaultShipAddress)
+                    .HasMaxLength(50)
+                    .HasColumnName("Default_ShipAddress");
+
+                entity.Property(e => e.FirstName)
+                    .IsRequired()
+                    .HasMaxLength(15)
+                    .HasColumnName("First_Name");
+
+                entity.Property(e => e.Gender).HasMaxLength(2);
+
+                entity.Property(e => e.IsSupervisor).HasColumnName("isSupervisor");
+
+                entity.Property(e => e.LastName)
+                    .IsRequired()
+                    .HasMaxLength(15)
+                    .HasColumnName("Last_Name");
+
+                entity.Property(e => e.LasttImeLogin)
+                    .IsRequired()
+                    .IsRowVersion()
+                    .IsConcurrencyToken()
+                    .HasColumnName("LasttIme_Login");
+
+                entity.Property(e => e.Password)
+                    .IsRequired()
+                    .HasMaxLength(30);
+
+                entity.Property(e => e.Phone).HasMaxLength(10);
+
+                entity.Property(e => e.ShaPassword)
+                    .IsRequired()
+                    .HasMaxLength(50);
+            });
+
+            modelBuilder.Entity<Announcement>(entity =>
+            {
+                entity.Property(e => e.AnnouncementId).HasColumnName("Announcement_Id");
+
+                entity.Property(e => e.AccountId).HasColumnName("Account_Id");
+
+                entity.Property(e => e.AnnouncementContent)
+                    .IsRequired()
+                    .HasMaxLength(300)
+                    .HasColumnName("Announcement_Content");
+
+                entity.Property(e => e.AnnouncementEndDate)
+                    .HasColumnType("date")
+                    .HasColumnName("Announcement_EndDate");
+
+                entity.Property(e => e.AnnouncementImage).HasColumnName("Announcement_Image");
+
+                entity.Property(e => e.AnnouncementStartDate)
+                    .HasColumnType("date")
+                    .HasColumnName("Announcement_StartDate");
+
+                entity.Property(e => e.AnnouncementStatus)
+                    .HasMaxLength(25)
+                    .HasColumnName("Announcement_Status");
+
+                entity.HasOne(d => d.Account)
+                    .WithMany(p => p.Announcement)
+                    .HasForeignKey(d => d.AccountId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_Account_TO_Announcement");
+            });
+
             modelBuilder.Entity<Products>(entity =>
             {
                 entity.HasKey(e => e.ProductId);
@@ -46,6 +147,52 @@ namespace SuFood.Models
                     .IsRequired()
                     .HasMaxLength(10)
                     .HasColumnName("Stock_Unit");
+            });
+
+            modelBuilder.Entity<ShoppingMethod>(entity =>
+            {
+                entity.ToTable("Shopping_method");
+
+                entity.HasIndex(e => e.Methods, "UQ_methods")
+                    .IsUnique();
+
+                entity.Property(e => e.ShoppingMethodId)
+                    .HasMaxLength(1)
+                    .HasColumnName("Shopping_method_Id");
+
+                entity.Property(e => e.Free2ChoiceId).HasColumnName("Free2Choice_Id");
+
+                entity.Property(e => e.Methods)
+                    .IsRequired()
+                    .HasMaxLength(1)
+                    .HasColumnName("methods");
+
+                entity.Property(e => e.RetailsId).HasColumnName("Retails_Id");
+
+                entity.Property(e => e.SubscribeId).HasColumnName("Subscribe_Id");
+
+                entity.HasOne(d => d.Subscribe)
+                    .WithMany(p => p.ShoppingMethod)
+                    .HasForeignKey(d => d.SubscribeId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_Subscribe_List_TO_Shopping_method");
+            });
+
+            modelBuilder.Entity<SubscribeList>(entity =>
+            {
+                entity.HasKey(e => e.SubscribeId);
+
+                entity.ToTable("Subscribe_List");
+
+                entity.Property(e => e.SubscribeId).HasColumnName("Subscribe_Id");
+
+                entity.Property(e => e.ProductId).HasColumnName("Product_Id");
+
+                entity.HasOne(d => d.Product)
+                    .WithMany(p => p.SubscribeList)
+                    .HasForeignKey(d => d.ProductId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_Products_TO_Subscribe_List");
             });
 
             OnModelCreatingPartial(modelBuilder);

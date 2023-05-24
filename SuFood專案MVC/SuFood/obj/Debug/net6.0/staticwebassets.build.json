@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "Q3KMDaNZCKAjkx7Agai7bULQa+W+AJsrYU5CAA1FzGk=",
+  "Hash": "4rLsEjQR+Kj96vZblEPcgMyanJVqG1xCFJHQ2OjYaF4=",
   "Source": "SuFood",
   "BasePath": "_content/SuFood",
   "Mode": "Default",
@@ -1275,6 +1275,23 @@
       "OriginalItemSpec": "wwwroot\\css\\BackStageMain.css"
     },
     {
+      "Identity": "D:\\WorkSpace\\專題\\SuFood\\SuFood專案MVC\\SuFood\\wwwroot\\css\\Coupon.css",
+      "SourceId": "SuFood",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\WorkSpace\\專題\\SuFood\\SuFood專案MVC\\SuFood\\wwwroot\\",
+      "BasePath": "_content/SuFood",
+      "RelativePath": "css/Coupon.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\Coupon.css"
+    },
+    {
       "Identity": "D:\\WorkSpace\\專題\\SuFood\\SuFood專案MVC\\SuFood\\wwwroot\\css\\CouponManagement.css",
       "SourceId": "SuFood",
       "SourceType": "Discovered",
@@ -2038,6 +2055,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\img\\ProductManagement\\snake.jpg"
+    },
+    {
+      "Identity": "D:\\WorkSpace\\專題\\SuFood\\SuFood專案MVC\\SuFood\\wwwroot\\js\\Coupon.js",
+      "SourceId": "SuFood",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\WorkSpace\\專題\\SuFood\\SuFood專案MVC\\SuFood\\wwwroot\\",
+      "BasePath": "_content/SuFood",
+      "RelativePath": "js/Coupon.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\Coupon.js"
     },
     {
       "Identity": "D:\\WorkSpace\\專題\\SuFood\\SuFood專案MVC\\SuFood\\wwwroot\\js\\couponManagement.js",

@@ -3,11 +3,17 @@
     data: {
         pageName: '優惠券管理',
         keyword: '',
+        toast:'',
         editId: undefined,
+        delId: undefined,
         popupShowing: {
-            showPopup: false
+            showPopup: false,
+            /*cardPopupBody4Del: false,*/
         },
-        CreateOrEdit: '',
+        toastHintStyle: {
+            fadeInUp: false
+        },
+        CreateOrEditOrDelete: '',
         coupons: [],
         editCouponList: {
             CouponId: this.editId,
@@ -26,7 +32,7 @@
             MinimumPurchasingAmount: '',
             CouponStartDate: '',
             CouponEndDate: ''
-        }
+        },
     },
     methods: {
         toastHint() {
@@ -36,20 +42,27 @@
             }, 2100)
         },
         createCoupon() {
-            this.CreateOrEdit = "Create";
+            this.CreateOrEditOrDelete = "Create";
             this.popupShowing.showPopup = true;
         },
         closeCoupon() {
             this.popupShowing.showPopup = false;
         },
+        closePopupShowHint() {
+            this.popupShowing.showPopup = false;
+            this.toastHint();
+        },
         editCoupon(item) {
-            this.CreateOrEdit = "Edit";
+            this.CreateOrEditOrDelete = "Edit";
             this.popupShowing.showPopup = true;
             this.editCouponList = item;
             this.editId = item.couponId;
         },
-        delCoupon(DelCouponItem) {
-            // this.editCouponList = DelCouponItem;
+        delCoupon(c) {
+            this.CreateOrEditOrDelete = "Delete";
+            this.popupShowing.showPopup = true;
+            this.delId = c.couponId;
+            console.log(this.delId);
         },
         GetCouponInfo() {
             let _this = this;
@@ -64,12 +77,12 @@
                     'Content-Type':'application/json'
                 }
             }).then(response => {
-                this.popupShowing.showPopup = false
-                alert(response.data);
+                this.toast = response.data
+                this.closePopupShowHint()
                 _this.GetCouponInfo()
             })
         },
-        EditCoupon(item) {
+        EditCoupon() {
             let _this = this;
             var tempData = {
                 CouponId: _this.editId,
@@ -80,17 +93,28 @@
                 CouponStartDate: _this.editCouponList.couponstartdate2String,
                 CouponEndDate: _this.editCouponList.couponenddate2String,
             };
-            console.log(tempData);
             axios.put("/BackStage/CouponManagement/Edit/", tempData, {
                 headers: {
                     'Content-Type':'application/json'
                 }
             }).then(response => {
-                alert(response.data)
-                this.popupShowing.showPopup = false;
+                this.toast = response.data
+                /*alert(response.data)*/
+                this.closePopupShowHint()
                 _this.GetCouponInfo()
             })
         },
+        DelCoupon(id) {
+            let _this = this;
+            //console.log(id, 'id')
+            //console.log(_this.id, 'id'); //undefined
+            axios.delete(`/BackStage/CouponManagement/Delete/${id}`)
+                .then(response => {
+                    this.toast = response.data
+                    this.closePopupShowHint()
+                    _this.GetCouponInfo();
+                }).catch(error => console.log(error));
+        }
     },
     computed: {
         filterCoupons() {

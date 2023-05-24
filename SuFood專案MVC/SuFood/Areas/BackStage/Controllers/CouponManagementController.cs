@@ -90,6 +90,28 @@ namespace SuFood.Areas.BackStage.Controllers
 			}
 			return "修改失敗";
 		}
+
+		//Delete
+		[HttpDelete]
+		public async Task<string> Delete(int id)
+		{
+			var couponDel = await _context.Coupon.FindAsync(id);
+			if(couponDel != null)
+			{
+				try
+				{
+					_context.Coupon.Remove(couponDel);
+					await _context.SaveChangesAsync();
+				}
+				catch(DbUpdateConcurrencyException e)
+				{
+					return "找不到對應優惠券，刪除失敗";
+				}
+
+				return "刪除成功";
+			}
+			return "刪除失敗";
+		}
 		private bool CouponsExists(int id)
 		{
 			return (_context.Coupon?.Any(c => c.CouponId == id)).GetValueOrDefault();

@@ -57,6 +57,10 @@
       "PackagePath": "staticwebassets\\css\\BackendManagement.css"
     },
     {
+      "Id": "D:\\WorkSpace\\專題\\SuFood\\SuFood專案MVC\\SuFood\\wwwroot\\css\\Coupon.css",
+      "PackagePath": "staticwebassets\\css\\Coupon.css"
+    },
+    {
       "Id": "D:\\WorkSpace\\專題\\SuFood\\SuFood專案MVC\\SuFood\\wwwroot\\css\\CouponManagement.css",
       "PackagePath": "staticwebassets\\css\\CouponManagement.css"
     },
@@ -235,6 +239,10 @@
     {
       "Id": "D:\\WorkSpace\\專題\\SuFood\\SuFood專案MVC\\SuFood\\wwwroot\\img\\hotProducts\\水果01.jpg",
       "PackagePath": "staticwebassets\\img\\hotProducts\\水果01.jpg"
+    },
+    {
+      "Id": "D:\\WorkSpace\\專題\\SuFood\\SuFood專案MVC\\SuFood\\wwwroot\\js\\Coupon.js",
+      "PackagePath": "staticwebassets\\js\\Coupon.js"
     },
     {
       "Id": "D:\\WorkSpace\\專題\\SuFood\\SuFood專案MVC\\SuFood\\wwwroot\\js\\couponManagement.js",

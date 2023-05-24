@@ -1,4 +1,5 @@
-﻿.container {
+﻿@import url('https://fonts.googleapis.com/css2?family=Mukta:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap');
+.container {
     width: 100vw;
     padding-bottom: 150px;
 }
@@ -10,8 +11,6 @@
     max-height: fit-content;
     padding-top: 30px;
 }
-
-@import url('https://fonts.googleapis.com/css2?family=Mukta:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap');
 
 /*===== VARIABLES CSS =====*/
 :root {
@@ -105,7 +104,7 @@ body {
     font-family: 'Mukta';
 }
 
-    .couponManagement table {
+.couponManagement table {
         width: 100%;
         border-radius: 1rem;
         padding: 5rem;
@@ -113,7 +112,7 @@ body {
         background: #fff;
         box-shadow: 5px 5px 15px #e1e1e1, -5px -5px 15px #ffffff;
         font-weight: bold;
-    }
+}
 
 .table__container {
     height: 600px;
@@ -400,10 +399,10 @@ input[type="file"] {
 }
 
 .cardPopup-body {
-    border-radius: 6px;
+    border-radius: 10px;
     background-color: white;
     padding: 3%;
-    width: 800px;
+    width: 650px;
     height: 650px;
 }
 

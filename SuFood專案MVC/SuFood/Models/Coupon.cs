@@ -2,17 +2,25 @@
 #nullable disable
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace SuFood.Models
 {
-    public partial class Coupon
-    {
-        public int CouponId { get; set; }
-        public string CouponDescription { get; set; }
-        public string CouponName { get; set; }
-        public decimal? CouponMinusCost { get; set; }
-        public int? MinimumPurchasingAmount { get; set; }
-        public DateTime? CouponStartDate { get; set; }
-        public DateTime? CouponEndDate { get; set; }
-    }
+	public partial class Coupon
+	{
+		public int CouponId { get; set; }
+		[Required]
+		public string CouponDescription { get; set; }
+		[Required]
+		public string CouponName { get; set; }
+		[Range(0,100, ErrorMessage = "{0} 必須介於 {1} 至 {2}")]
+		public decimal? CouponMinusCost { get; set; }
+		[Required]
+		public int? MinimumPurchasingAmount { get; set; }
+		[Required]
+
+		public DateTime? CouponStartDate { get; set; }
+		[Required]
+		public DateTime? CouponEndDate { get; set; }
+	}
 }

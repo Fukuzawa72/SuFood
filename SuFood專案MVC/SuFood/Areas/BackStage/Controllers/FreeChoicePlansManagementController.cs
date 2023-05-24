@@ -51,24 +51,28 @@ namespace SuFood.Areas.BackStage.Controllers
             });
         }
 
-        //DELETE: /FreeChoicePlansManagement/DeleteProductsOfPlans 刪除方案中的產品(單筆)
-        [HttpDelete]
-        public async Task<string> DeleteProductsOfPlans(int PlanId, int ProductId)
-        {
-            if (_context.ProductsOfPlans == null)
-            {
-                return "資料不存在";
-            }
+        
 
-            var product = await _context.ProductsOfPlans.FindAsync(PlanId, ProductId);
-            if (product != null)
-            {
-                _context.ProductsOfPlans.Remove(product);
-            }
+        //DELETE: /FreeChoicePlansManagement/DeleteProductsOfPlansAndPlans/{PlanId} 刪除方案中的產品(單筆) ProductsOfPlans和FreeChoicePlans
+        [HttpDelete]
+        public async Task<string> DeleteProductsOfPlansAndPlans(int PlanId)
+        {
+            var childTable = _context.ProductsOfPlans.Where(pop => pop.PlanId == PlanId).Select(pop =>　pop);
+            _context.ProductsOfPlans.RemoveRange(childTable);
             await _context.SaveChangesAsync();
-            return "刪除成功";
+
+            var FatherTable = _context.FreeChoicePlans.Where(fcp => fcp.PlanId == PlanId).Select(fcp => fcp).SingleOrDefault();
+            
+            if(FatherTable != null)
+            {
+                _context.FreeChoicePlans.Remove(FatherTable);
+                _context.SaveChanges();
+                return "刪除成功";
+            }
+            return "刪除失敗";
         }
 
+        //CREATE: /BackStage/FreeChoicePlansManagement/CreatePlans 新增方案與方案中的產品。
         [HttpPost]
         public async Task<string> CreatePlans([FromBody] VmFreeChoicePlans vmParameters)
         {
@@ -87,6 +91,35 @@ namespace SuFood.Areas.BackStage.Controllers
             _context.FreeChoicePlans.Add(fcp);
             await _context.SaveChangesAsync();
             return "新增方案成功";
+        }
+
+        //Edit: /BackStage/FreeChoicePlansManagement/EditPlans 新增方案與方案中的產品。
+        [HttpPost]
+        public async Task<string> EditPlans([FromBody] VmFreeChoicePlans vmParameters)
+        {
+            if(vmParameters == null)
+            {
+                return "修改失敗";
+            }
+
+            FreeChoicePlans fcp = new FreeChoicePlans
+            {
+                PlanId = vmParameters.PlanId,
+                PlanName = vmParameters.PlanName,
+                PlanDescription = vmParameters.PlanDescription,
+                PlanPrice = vmParameters.PlanPrice,
+                PlanCanChoiceCount = vmParameters.PlanCanChoiceCount,
+                PlanTotalCount = vmParameters.PlanTotalCount,
+                PlanStatus = vmParameters.PlanStatus,
+                //ProductsOfPlans = vmParameters.ProductsOfPlans,
+            };
+            _context.FreeChoicePlans.Update(fcp);
+            await _context.SaveChangesAsync();
+
+            //這裡使用條件判斷，修改ProductsOfPlans
+
+
+            return "修改方案成功";
         }
 
         //新增ProdcutOfPlans資料表
@@ -118,6 +151,24 @@ namespace SuFood.Areas.BackStage.Controllers
             await _context.SaveChangesAsync();
 
             return "新增成功";
+        }
+
+        //DELETE: /FreeChoicePlansManagement/DeleteProductsOfPlans 刪除方案中的產品(單筆) ProductsOfPlans
+        [HttpDelete]
+        public async Task<string> DeleteProductsOfPlans(int PlanId, int ProductId)
+        {
+            if (_context.ProductsOfPlans == null)
+            {
+                return "資料不存在";
+            }
+
+            var product = await _context.ProductsOfPlans.FindAsync(PlanId, ProductId);
+            if (product != null)
+            {
+                _context.ProductsOfPlans.Remove(product);
+            }
+            await _context.SaveChangesAsync();
+            return "刪除成功";
         }
     }
 }

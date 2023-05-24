@@ -94,7 +94,7 @@ namespace SuFood.Areas.BackStage.Controllers
 
         //修改功能
         [HttpPost]
-        public async Task<string> Edit([FromForm,Bind("ProductId,ProductName,ProductDescription,StockUnit,StockQuantity,Price,Cost,Category,Img")] Products products)
+        public async Task<string> Edit([FromForm, Bind("ProductId,ProductName,ProductDescription,StockUnit,StockQuantity,Price,Cost,Category,Img")] Products products)
         {
             if (ModelState.IsValid)
             {
@@ -115,7 +115,7 @@ namespace SuFood.Areas.BackStage.Controllers
                     {
                         await _context.SaveChangesAsync();
                     }
-                    catch(Exception)
+                    catch (Exception)
                     {
                         return "修改失敗";
                     }
@@ -134,9 +134,9 @@ namespace SuFood.Areas.BackStage.Controllers
                 return "修改成功";
             }
             return "修改失敗";
-            }
+        }
 
-        
+
 
 
 

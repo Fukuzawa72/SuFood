@@ -35,7 +35,7 @@
                     <td>${{p.planPrice}}</td>
                     <td><span class="active">上架</span></td>
                     <td><i @@click="EditProducts(p)" class="bx bxs-edit tableIcon"></i></td>
-                    <td><i @@click="DeleteProducts" class="bx bxs-trash tableIcon"></i></td>
+                    <td><i @@click="DeleteProducts(p.planId)" class="bx bxs-trash tableIcon"></i></td>
                 </tr>
             </tbody>
         </table>
@@ -114,7 +114,7 @@
                         </div>
                     </div>
 
-                    <button class="modal__button modal__butoon-width" @@click="closeModalWithHint">
+                    <button class="modal__button modal__butoon-width" @@click="EditPlans">
                         更新
                     </button>
             </template>
@@ -126,34 +126,34 @@
                         <div class="mb-3">
                             <div>方案名稱</div>
                             <input type="text" placeholder="普通方案" class="productItemInp col-8"
-                                   v-model="EditProductsList.Name">
+                                   v-model="CreateProductsList.planName">
                         </div>
                         <div class="mb-3">
                             <div>說明</div>
                             <input type="text" placeholder="熱門商品20選" class="productItemInp col-8"
-                                   v-model="EditProductsList.category">
+                                   v-model="CreateProductsList.planDescription">
                         </div>
                         <div class="mb-3">
                             <div>狀態</div>
                             <input type="text" placeholder="上架" class="productItemInp col-8"
-                                   v-model="EditProductsList.amount">
+                                   v-model="CreateProductsList.planStatus">
                         </div>
                     </div>
                     <div class="col-5 g-3 productDetail__container">
                         <div class="mb-3">
                             <div>商品總數</div>
                             <input type="text" placeholder="20" class="productItemInp col-8"
-                                   v-model="EditProductsList.cost">
+                                   v-model="CreateProductsList.planTotalCount">
                         </div>
                         <div class="mb-3">
                             <div>可選數量</div>
                             <input type="text" placeholder="10" class="productItemInp col-8"
-                                   v-model="EditProductsList.price">
+                                   v-model="CreateProductsList.planCanChoiceCount">
                         </div>
                         <div class="mb-3">
                             <div>售價</div>
                             <input type="text" placeholder="399" class="productItemInp col-8"
-                                   v-model="EditProductsList.amount">
+                                   v-model="CreateProductsList.planPrice">
                         </div>
                     </div>
                 </div>
@@ -181,7 +181,7 @@
                     </div>
                 </div>
 
-                <button class="modal__button modal__butoon-width" @@click="closeModalWithHint">
+                <button class="modal__button modal__butoon-width" @@click="CreatePlans">
                     新增
                 </button>
             </template>
@@ -189,7 +189,7 @@
             <!--====== 刪除MODAL ======-->
             <template v-else>
                 <div class="d-flex align-content-center justify-content-between">
-                    <button class="modal__button modal__butoon-width" @@click="closeModalWithHint">
+                    <button class="modal__button modal__butoon-width" @@click="DeletePlans(deleteId)">
                         刪除
                     </button>
 

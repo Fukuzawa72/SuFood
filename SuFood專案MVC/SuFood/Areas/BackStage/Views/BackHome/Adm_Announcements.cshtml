@@ -1,5 +1,61 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
+﻿<h1>首頁管理</h1>
+<br />
+
+<div id="app">
+    <div>
+        <lable>輪播圖管理</lable>
+        <lable>優惠活動管理</lable>
+        <lable>公告管理</lable>
+        <lable>熱賣商品管理</lable>
+    </div>
+    <div>
+        <img id="imgPreview" src="@Url.Content("~/images/R.png")" style="width:320px;height:300px" title="尚無內容" />
+    </div>
+
+    <input class="form-control" type="file" id="formFileMultiple" multiple @@change="selectpic" />
+    <br />
+    <button @@click="upload" class="btn btn-dark">upload</button>
+</div>
+
+<script>
+    let app = new Vue({
+        el: '#app',
+        data: {
+            pic: "",
+        },
+        methods: {
+            upload: function () {
+                var d = new FormData();
+                d.append('pic', this.pic)
+                axios.post('/BackHome/Adm_Announcements', d).then(function (res) {
+                    if (res.data) {
+                        alert('新增成功');
+                    }
+                })
+            },
+            selectpic: function (e) {
+                this.pic = e.target.file[0]
+            },
+        },
+    })
+    $("#File1").change(function () {
+        readURL(this, $('#imgPreview'));
+    });
+</script>
+
+
+
+@section Scripts {
+
+
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    <script src="~/js/site.min.js"></script>
+    <script>
+
+        $("#File1").change(function () {
+            readURL(this, $('#imgPreview'));
+        });
+    </script>
 }

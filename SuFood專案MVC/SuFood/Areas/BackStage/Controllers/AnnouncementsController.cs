@@ -22,8 +22,7 @@ namespace SuFood.Areas.BackStage.Controllers
         // GET: BackStage/Announcements
         public async Task<IActionResult> Index()
         {
-            var suFoodDBContext = _context.Announcement.Include(a => a.Account);
-            return View(await suFoodDBContext.ToListAsync());
+            return View();
         }
 
         // GET: BackStage/Announcements/Details/5

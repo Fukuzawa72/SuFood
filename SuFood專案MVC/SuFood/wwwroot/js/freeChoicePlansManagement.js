@@ -63,10 +63,6 @@
         },
         EditProducts(item) {
             this.GetProducts(item.planId)
-
-            //加isSelected樣式
-            this.autoSelectAllProductsFitCondition()
-
             this.GetAllProduct()
             this.EditProductsList.planId = item.planId
             this.EditProductsList.planName = item.planName
@@ -120,7 +116,9 @@
         },
         //將所有商品放入選擇商品
         toggleProductSelection(product) {
-            const index = this.selectedProducts.indexOf(product);
+            let productId = product.productId
+            let spi = this.selectedProducts.map(p => p.productId)
+            const index = spi.indexOf(productId);
             if (index !== -1) {
                 this.selectedProducts.splice(index, 1);
             } else {
@@ -129,19 +127,9 @@
         },
         //方案選擇商品顏色提示
         isSelected(product) {
-            return this.selectedProducts.includes(product);
-        },
-        //確認資料庫產品資料自動加上顏色提示
-        autoSelectAllProductsFitCondition() {
+            let productId = product.productId
             let spi = this.selectedProducts.map(p => p.productId)
-            let pi = this.products.map(p => p.productId)
-
-            pi.forEach(p => {
-                if (spi.includes(p)) {
-                    this.toggleProductSelection(p)
-                    document.getElementById(`li${p}`).classList.toggle("SelectedItemStyle") 
-                }
-            })
+            return spi.includes(productId);
         },
         //查詢方案
         GetPlans() {

@@ -30,13 +30,11 @@ namespace SuFood.Areas.BackStage.Controllers
                     PlanCanChoiceCount = p.Plan.PlanCanChoiceCount,
                     PlanStatus = p.Plan.PlanStatus,
                 }).SingleOrDefault(),
-                Products = group.Select(p => new VmProductForFront
+                Products = group.Select(p => new
                 {
                     ProductId = p.Product.ProductId,
                     ProductName = p.Product.ProductName,
                     Price = p.Product.Price,
-                    Img = p.Product.Img,
-                    Quantity = 0
                 })
             });
         }
@@ -71,27 +69,54 @@ namespace SuFood.Areas.BackStage.Controllers
             return "刪除成功";
         }
 
-        //POST: /FreeChoicePlansManagement/CreateProductsOfPlan 新增多筆方案中的產品
         [HttpPost]
-        public async Task<string> CreateProductsOfPlan(List<ProductsOfPlans> products)
+        public async Task<string> CreatePlans([FromBody] VmFreeChoicePlans vmParameters)
         {
-            foreach (var product in products)
+            FreeChoicePlans fcp = new FreeChoicePlans
             {
-                if (!_context.FreeChoicePlans.Any(p => p.PlanId == product.PlanId))
+                PlanId= vmParameters.PlanId,
+                PlanName= vmParameters.PlanName,
+                PlanDescription= vmParameters.PlanDescription,
+                PlanPrice= vmParameters.PlanPrice,
+                PlanCanChoiceCount= vmParameters.PlanCanChoiceCount,
+                PlanTotalCount= vmParameters.PlanTotalCount,
+                PlanStatus= vmParameters.PlanStatus,
+                ProductsOfPlans= vmParameters.ProductsOfPlans,
+            };
+
+            _context.FreeChoicePlans.Add(fcp);
+            await _context.SaveChangesAsync();
+            return "新增方案成功";
+        }
+
+        //新增ProdcutOfPlans資料表
+        [HttpPost]
+        public async Task<string> CreateProductsOfPlan([FromBody] List<VmProductsOfPlans> vmParameters)
+        {
+            foreach (var vmParameter in vmParameters)
+            {
+                if (!_context.FreeChoicePlans.Any(p => p.PlanId == vmParameter.PlanId))
                 {
                     return "不存在該方案";
                 }
 
-                ProductsOfPlans insert = new ProductsOfPlans
+                // 檢查是否已存在相同的記錄
+                if (_context.ProductsOfPlans.Any(pop => pop.PlanId == vmParameter.PlanId && pop.ProductId == vmParameter.ProductId))
                 {
-                    PlanId = product.PlanId,
-                    ProductId = product.ProductId
+                    return $"重複的主鍵：PlanId = {vmParameter.PlanId}, ProductId = {vmParameter.ProductId}";
+                }
+
+                ProductsOfPlans pop = new ProductsOfPlans
+                {
+                    ProductId = vmParameter.ProductId,
+                    PlanId = vmParameter.PlanId,
                 };
 
-                _context.ProductsOfPlans.Add(insert);
+                _context.ProductsOfPlans.Add(pop);
             }
 
             await _context.SaveChangesAsync();
+
             return "新增成功";
         }
     }

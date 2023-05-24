@@ -192,7 +192,7 @@
                     }
                 },
 
-                //從後端取得資料的方法
+                //取得所有產品
                 GetProductDetail() {
                     axios.get("/FreeChoice/GetProducts").then(response => {
                         this.products = response.data
@@ -202,7 +202,7 @@
 
                 //取得方案
                 GetPlans(){
-                    axios.get("/BackStage/FreeChoicePlansManagement/GetPlansAndProducts").then(response => {                        
+                    axios.get("/FreeChoice/GetPlansAndProducts").then(response => {
                         response.data.forEach(response => {
                             console.log(response)
                             this.plans.push(response.plans)
@@ -212,7 +212,7 @@
                 //取得方案內的產品
                 GetProducts(planId){
                     let _this = this;
-                    axios.get("/BackStage//FreeChoicePlansManagement/GetPlansAndProducts").then(response => {
+                    axios.get("/FreeChoice/GetPlansAndProducts").then(response => {
                         response.data.forEach(response => {
                             if(response.plans.planId == planId){
                                 _this.products = response.products

@@ -12,6 +12,6 @@ namespace SuFood.ViewModel
         public int? PlanPrice { get; set; }
         public bool? PlanStatus { get; set; }
 
-        public virtual ICollection<Products> Product { get; set; }
+        public virtual ICollection<ProductsOfPlans> ProductsOfPlans { get; set; }
     }
 }
